@@ -1,28 +1,23 @@
-from urllib.request import urlopen
+from MovieModel import Movie
+import fresh_tomatoes
 
-def read_text():
-    textFile = open(r"/home/tadashera/Documents/requests/movie_quotes.txt")
-    content = textFile.read()
-    textFile.close()
-    check_profanity(content.replace('\n', ' ').replace('\r', ''))
+toy_story = Movie("Toy Story",
+                  "A story of a boy and his toys that come to life",
+                  "http://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg",
+                  "https://www.youtube.com/watch?v=vwyZH85NQC4")
 
+avatar = Movie("Avatar",
+               "A marine on an alien planet",
+               "http://upload.wikimedia.org/wikipedia/id/b/b0/Avatar-Teaser-Poster.jpg",
+               "https://www.youtube.com/watch?v=-9ceBgWV8io")
 
-def help_object(object):
-    help(object)
+theCircle = Movie("The circle",
+                  "A technology company employee lives a moral dilemma by engaging in " +
+                  "a project that leaves users' privacy limits vulnerable.",
+                  "https://upload.wikimedia.org/wikipedia/en/8/80/The_Circle_%282017_film%29.png",
+                  "https://www.youtube.com/watch?v=yI_av33WY8k")
 
+movies = [toy_story, avatar, theCircle]
 
-def check_profanity(text):
-    print(text)
-    connection = urlopen("http://www.wdylike.appspot.com/?q=" + text, None, None)
-    output = connection.read()
-    print(output)
+fresh_tomatoes.open_movies_page(movies)
 
-    if output == b'true':
-        print("PROFANITY ALERT!!")
-    elif output == b'false':
-        print("This document has no curse words!")
-
-    connection.close()
-
-
-read_text()
