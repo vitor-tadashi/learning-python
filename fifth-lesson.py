@@ -19,5 +19,6 @@ theCircle = Movie("The circle",
 
 movies = [toy_story, avatar, theCircle]
 
-fresh_tomatoes.open_movies_page(movies)
-
+#fresh_tomatoes.open_movies_page(movies)
+print(Movie.__name__)
+print(Movie.__module__)
